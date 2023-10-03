@@ -83,4 +83,4 @@ await prisma.educationLevel.createMany({
     skipDuplicates: true,
   })
 ```
-4. Выполнить seed: `npx prisma db seed`. Для проверки заполнения таблицы можно использовать `npx prisma studio``
+4. Выполнить seed: `npx prisma db seed`. Для проверки заполнения таблицы можно использовать `npx prisma studio`
