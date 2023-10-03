@@ -12,3 +12,19 @@
 6. Создать миграцию `npx prisma migrate dev --name init`
 7. Создать скрипт для работы с БД [src/script.mjs](src/script.mjs)
 8. Запустить скрипт: `node src/script.mjs`. Будет создана запись User
+
+## Создание справочника
+
+1. Добавить таблицу EducationLevel с полями id, code, name
+
+```  
+/// Справочник Образование
+model EducationLevel {
+  id    Int     @id @default(autoincrement())
+  code  String  @unique
+  name  String
+}
+```
+2. Создать новую миграцию `npx prisma migrate dev --name education_level` 
+3. Настроить seed-скрипт для пополнения данных справочника  [prisma/seed.mjs](prisma/seed.mjs)
+4. Выполнить seed: `npx prisma db seed`. Для проверки заполнения таблицы можно использовать `npx prisma studio``

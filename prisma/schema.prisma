@@ -25,3 +25,10 @@ model Post {
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
 }
+
+/// Справочник Образование
+model EducationLevel {
+  id    Int     @id @default(autoincrement())
+  code  String  @unique
+  name  String
+}
