@@ -44,4 +44,43 @@ model EducationLevel {
 ```
 2. Создать новую миграцию `npx prisma migrate dev --name education_level` 
 3. Настроить seed-скрипт для пополнения данных справочника  [prisma/seed.mjs](prisma/seed.mjs)
+```
+await prisma.educationLevel.createMany({
+    data: [
+      {
+        code: "secondary",
+        name: "Среднее",
+      },
+      {
+        code: "special_secondary",
+        name: "Среднее специальное",
+      },
+      {
+        code: "unfinished_higher",
+        name: "Неоконченное высшее",
+      },
+      {
+        code: "higher",
+        name: "Высшее",
+      },
+      {
+        code: "bachelor",
+        name: "Бакалавр",
+      },
+      {
+        code: "master",
+        name: "Магистр",
+      },
+      {
+        code: "candidate",
+        name: "Кандидат наук",
+      },
+      {
+        code: "doctor",
+        name: "Доктор наук",
+      },
+    ],
+    skipDuplicates: true,
+  })
+```
 4. Выполнить seed: `npx prisma db seed`. Для проверки заполнения таблицы можно использовать `npx prisma studio``
