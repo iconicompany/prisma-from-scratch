@@ -9,6 +9,23 @@
 3. Настроить prisma: `npx prisma init`
 4. Создать БД в Postgres: `cat sql/schema.pg.sql |sudo -u postgres psql`
 5. Описать модель данных в файле [prisma/schema.prisma](prisma/schema.prisma) 
+```
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+```
 6. Создать миграцию `npx prisma migrate dev --name init`
 7. Создать скрипт для работы с БД [src/script.mjs](src/script.mjs)
 8. Запустить скрипт: `node src/script.mjs`. Будет создана запись User
