@@ -2,7 +2,7 @@
 
 ## Создание проекта
 
-По интструкции https://www.prisma.io/docs/getting-started/quickstart без TypeScript
+По инструкции https://www.prisma.io/docs/getting-started/quickstart без TypeScript
 
 1. Создать проект: `npm init -y`
 2. Установить prisma: `npm install prisma` 
